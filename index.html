@@ -857,7 +857,7 @@
     <header>
         <nav>
             <div class="logo">💰 InvestEase</div>
-            
+
             <!-- Burger Menu pour mobile -->
             <div class="burger-menu" onclick="toggleMenu()">
                 <span></span>
@@ -879,7 +879,7 @@
             <div class="hero-content">
                 <h1>Investissez simplement,<br>récoltez sereinement</h1>
                 <p>Des plans d'investissement clairs et transparents, accessibles à tous</p>
-                <!-- BOUTON DANS LE HEADER VERS LES OFFRES (VISIBLE SUR MOBILE AUSSI) -->
+                <!-- BOUTON VERS LES OFFRES -->
                 <a href="#plans" class="nav-btn" onclick="scrollToPlans(); closeMenu();">Voir les offres</a>
             </div>
         </section>
@@ -929,7 +929,7 @@
         <section id="plans" class="plans">
             <h2 class="section-title">Nos offres d'investissement</h2>
             <p class="plans-subtitle">Des formules simples et adaptées à tous les profils</p>
-            
+
             <div class="cards-container">
                 <!-- Plan Basic -->
                 <div class="card" onclick="openForm('Plan Basic')">
@@ -939,7 +939,7 @@
                             <span class="amount">5 000 £</span>
                         </div>
                     </div>
-                    
+
                     <div class="plan-invest">
                         <p>Montant à investir</p>
                         <div class="invest-amount">499 £</div>
@@ -956,7 +956,7 @@
                             <span class="amount">15 000 £</span>
                         </div>
                     </div>
-                    
+
                     <div class="plan-invest">
                         <p>Montant à investir</p>
                         <div class="invest-amount">1 199 £</div>
@@ -973,7 +973,7 @@
                             <span class="amount">50 000 £</span>
                         </div>
                     </div>
-                    
+
                     <div class="plan-invest">
                         <p>Montant à investir</p>
                         <div class="invest-amount">3 999 £</div>
@@ -1075,15 +1075,15 @@
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" required placeholder="votre@email.com">
-                </div> 
+                </div>
 
                 <div class="form-group">
                     <label for="plan">Plan d'investissement</label>
                     <select id="plan" required>
                         <option value="">Sélectionnez un plan</option>
-                        <option value="Basic - 500£">Basic - 499 £ d'investissement</option>
-                        <option value="Premium - 2000£">Premium - 1 199 £ d'investissement</option>
-                        <option value="Elite - 5000£">Elite - 3 999 £ d'investissement</option>
+                        <option value="Basic - 5 000£">Basic - 499 £ d'investissement</option>
+                        <option value="Premium - 15 000£">Premium - 1 199 £ d'investissement</option>
+                        <option value="Elite - 50 000£">Elite - 3 999 £ d'investissement</option>
                     </select>
                 </div>
 
@@ -1111,7 +1111,7 @@
             const burger = document.querySelector('.burger-menu');
             const navLinks = document.querySelector('.nav-links');
             const body = document.body;
-            
+
             burger.classList.toggle('active');
             navLinks.classList.toggle('active');
             body.classList.toggle('menu-open');
@@ -1122,7 +1122,7 @@
             const burger = document.querySelector('.burger-menu');
             const navLinks = document.querySelector('.nav-links');
             const body = document.body;
-            
+
             burger.classList.remove('active');
             navLinks.classList.remove('active');
             body.classList.remove('menu-open');
@@ -1136,11 +1136,11 @@
         function openForm(planName) {
             selectedPlan = planName;
             const planSelect = document.getElementById('plan');
-            
-            if (planName === 'Plan Basic') planSelect.value = 'Basic - 500£';
-            else if (planName === 'Plan Premium') planSelect.value = 'Premium - 2000£';
-            else if (planName === 'Plan Elite') planSelect.value = 'Elite - 5000£';
-            
+
+            if (planName === 'Plan Basic') planSelect.value = 'Basic - 5 000£';
+            else if (planName === 'Plan Premium') planSelect.value = 'Premium - 15 000£';
+            else if (planName === 'Plan Elite') planSelect.value = 'Elite - 50 000£';
+
             document.getElementById('formModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
             closeMenu(); // Fermer le menu mobile si ouvert
@@ -1176,13 +1176,12 @@
             const nom = document.getElementById('nom').value;
             const prenom = document.getElementById('prenom').value;
             const email = document.getElementById('email').value;
-            const telephone = document.getElementById('telephone').value;
             const plan = document.getElementById('plan').value;
             const paiement = document.getElementById('paiement').value;
 
             let montant = '499£';
-            if (plan.includes('15000')) montant = '1199£';
-            else if (plan.includes('50000')) montant = '3999£';
+           if (plan.includes('Premium') || plan.includes('15 000')) montant = '1 199 £';
+            else if (plan.includes('Elite') || plan.includes('50 000')) montant = '3 999 £';
 
             const message = `*🔔 NOUVELLE DEMANDE D'INVESTISSEMENT - InvestEase*%0A%0A` +
                           `*👤 INFORMATIONS PERSONNELLES*%0A` +
